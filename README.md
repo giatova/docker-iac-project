@@ -19,8 +19,14 @@
 Build the Docker Image Make sure you have a Docker Image built on your local system. You can build the Docker Image: $ docker build -t my-image. Push the Docker Image to a registry Upload the Docker image to a container registry such as Docker Hub or Amazon Elastic Container Registry. docker tag my-image mydockerhubusername/my-image $ docker push mydockerhubusername/my-image. Install Docker on the EC2 instance Launch an EC2 instance using the AMI and install Docker if it is not already installed. $ sudo apt - get update $ sudo apt - get install docker.io. Pull the docker Container Image Once the Docker is installed on the EC2 instance, you can pull the Docker image from the registry: $ docker pull mydockerhubusername/my - image
 
 
+
+
+
 2) How would you ensure the Docker container is started on boot, and all subsequent reboots of the EC2 instance?
 1. Create a Docker Compose file or systemd service 2. Use systemd to Manage Docker systemctl create, for a 3. Enable the service to start on boot.
+
+
+
 
 
 3) How would you keep the above AMI up to date with future package/security updates?
@@ -36,6 +42,9 @@ Automating AMI creation using either AWS Lambda or AWS Systems Manager.
 • Alternatively, employ tools like Packer to automate the creation of new AMIs.
 
 
+
+
+
 4) Assuming an EC2 instance exists with the above AMI running the Docker container
 described in the first step, how would you go about ensuring the host EC2 instance is up
 to date?
@@ -45,6 +54,9 @@ sudo yum install yum-cron
 sudo systemctl enable yum-cron [Replace with appropriate name of the service]
 sudo systemctl start yum-cron
 2. Use Amazon CloudWatch and AWS Systems Manager to monitor instance health, and apply patches regularly.
+
+
+
 
 
 5) Assuming an EC2 instance exists with the above AMI running the Docker container
